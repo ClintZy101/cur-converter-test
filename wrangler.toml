@@ -1,0 +1,16 @@
+name = "currency-converter"
+type = "javascript"
+
+account_id = "YOUR_ACCOUNT_ID"
+workers_dev = true
+compatibility_date = "2023-10-01"
+
+[build]
+command = "npm run build"
+[build.upload]
+format = "service-worker"
+main = "./dist/index.js" # Adjust the path to your entry-point file
+
+[env.production]
+route = "yourdomain.com/*"
+zone_id = "YOUR_ZONE_ID"
