@@ -36,31 +36,6 @@ const CurrencyConverter = () => {
     fetchConversionRate();
   };
 
-  const deployToCloudflare = async () => {
-    try {
-      const response = await fetch('https://api.cloudflare.com/client/v4/accounts/YOUR_ACCOUNT_ID/pages/projects/YOUR_PROJECT_NAME/deployments', {
-        method: 'POST',
-        headers: {
-          'Authorization': 'Bearer YOUR_API_TOKEN',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          // Your deployment configuration here
-        })
-      });
-      if (!response.ok) {
-        throw new Error('Failed to deploy to Cloudflare');
-      }
-      const data = await response.json();
-      console.log('Deployment successful:', data);
-    } catch (err) {
-      console.error('Deployment error:', err.message);
-    }
-  };
-
-  // Call the deployToCloudflare function when needed
-  deployToCloudflare();
-
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <motion.div
